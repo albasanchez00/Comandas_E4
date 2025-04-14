@@ -161,7 +161,6 @@ public class Restaurante {
             JOptionPane.showMessageDialog(null, "Error al generar factura: " + e.getMessage());
         }
     }
-
     public void ejecutar() {
         int opcion = 0;
         do {
