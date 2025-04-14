@@ -8,9 +8,15 @@ public class Facturas {
     private final double iva=0.21;
 
     public Facturas() {
-        this.comandas = comandas;
+        this.comandas = new ArrayList<>(); // Inicializar correctamente
         this.fechaHoraF = LocalTime.now();
         this.cuentaTotal = 0;
+    }
+
+    // Añadir método para agregar comandas y calcular total
+    public void agregarComanda(Comandas comanda) {
+        comandas.add(comanda);
+        cuentaTotal += comanda.getPrecioTotal();
     }
 
 

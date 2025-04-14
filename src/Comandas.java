@@ -25,6 +25,7 @@ public class Comandas {
         }
 
         itemPedido itemPedido = new itemPedido(item, cantidad);
+        pedidos.add(itemPedido); // AÑADIR ESTA LÍNEA
 
         // Actualizar destino según el tipo de item
         actualizarDestino();
@@ -118,8 +119,16 @@ public class Comandas {
     }
 
     public String getResumenPedido() {
-        return "\n===== RESUMEN DEL PEDIDO =====\n"+
-                "\nMesa: "+ mesa.toString()+
-                "\nPedido: ";
+        StringBuilder sb = new StringBuilder();
+        sb.append("\n===== RESUMEN DEL PEDIDO =====\n");
+        sb.append("\nMesa: ").append(mesa.toString());
+        sb.append("\nPedido: \n");
+
+        for (itemPedido item : pedidos) {
+            sb.append(" - ").append(item.toString()).append("\n");
+        }
+
+        sb.append("\nTotal: ").append(getPrecioTotal()).append("€");
+        return sb.toString();
     }
 }

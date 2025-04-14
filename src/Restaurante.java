@@ -149,6 +149,7 @@ public class Restaurante {
             for (Comandas c : comanda) {
                 if (c.getMesa().equals(mesaElegida)) {
                     Facturas f = new Facturas();
+                    f.agregarComanda(c); // Agregar la comanda a la factura
                     factura.add(f);
                     JOptionPane.showMessageDialog(null, "Factura generada con éxito:\n" + f);
                     return;
@@ -169,7 +170,7 @@ public class Restaurante {
                             "1. Ver menú\n" +
                             "2. Ver bebidas\n" +
                             "3. Tomar Comanda\n" +
-                            "4. Ver estado de mesas\n" +
+                            "4. Ver mesas\n" +
                             "5. Generar factura\n" +
                             "0. Salir\n\n" +
                             "Seleccione una opción:");
